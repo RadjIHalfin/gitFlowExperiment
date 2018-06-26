@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ParametersSchema>
+
+  <default>
+    <commandRef name="cmdProgramDescription"/>
+
+    <optRef name="optHideAfterStart"/>
+
+    <optionPrefix>-</optionPrefix>
+    <optionValuePrefix>=</optionValuePrefix>
+  </default>
+
+  <command id="cmdProgramDescription">
+      <description>
+      Программа для поиграться с параметрами.
+      <br/>Программа запускается и висит в памяти. Второй экземпляр может передавать ей команды, в том числе выгружать ее.
+      <br/>Формат командной строки:
+      <br/><tab/>
+            <contextValueRef name="programName"/>
+            &lt;команда&lt; 
+            [<contextValueRef name="optionPrefix"/>&lt;опция&lt;[<contextValueRef name="optionValuePrefix"/>&lt;значение&lt;]
+            [...]]
+            [&lt;параметр&lt;
+            [...]]
+      <br/>
+      <br/>Для справки используйте: 
+      <br/><tab/><contextValueRef name="programName"/> <commandRef name="cmdHelp"/>
+    </description>
+  </command>
+
+  <command id="cmdHelp" name="help">
+    <description>
+      Выдает эту подсказку.
+      <br/>Для справки по командам:
+      <br/><contextValueRef name="programName"/> <contextValueRef name="сommandName"/>
+      <br/>Список команд:
+      <br/><contextListRef name="commandList"/>
+    </description>
+
+    <parameterRef name="paramCommandName"/>
+  </command>
+
+  <command id="cmdStart" name="start">
+    <description>
+      Запускает себя
+    </description>
+    <optionRef name="optWait"/>
+    <optionRef name="optForce">
+      <description>Просит работающий процесс перейти в состояние пригодное для остановки.</description>
+    </optionRef>
+  </command>
+
+  <command id="cmdStop" name="stop">
+    <description>
+      Стопает себя
+    </description>
+    <optionRef name="optWait"/>
+  </command>
+
+  <command id="cmdUpdate" name="update">
+    <description>
+      Обновляет конфигурацию
+    </description>
+    <optionRef name="optWait"/>
+  </command>
+
+  <command id="cmdShow" name="show">
+    <description>
+      Показывает нечто
+    </description>
+  </command>
+
+  <param id="paramCommandName">
+    <allowedValues>
+      <commandList/>
+    </allowedValues>
+  </param>
+
+  <option id="optForce"/>
+
+  <option id="optWait" defaultValue="0">
+    <numericValue/>
+  </option>
+
+  <option id="optHideAfterStart" defaultValue="yes">
+    <allowedValues>
+      <value>yes</value>
+      <value>no</value>
+    </allowedValues>
+  </option>
+
+
+</ParametersSchema>

@@ -11,25 +11,32 @@ using TSB.Lib.Program.Resource;
 namespace TSB.Lib.Program.CommandLine
 {
     /// Класс для описания и парсинга параметров командной строки
-    class CommandLine
+    public class SyntaxLoader
     {
-        const string cmdLineSchemaResourceName = "CommandLineParametersSchema.xml";
-        //const string cmdLineSchemaXSDResourceName = "Program/CommandLine/ParametersSchema.xsd";
-        //const string cmdLineSchemaXSLTResourceName = "Program/CommandLine/ParametersSchema.xslt";
+        const string cmdLineSchemaResourceName = "ParametersSchema.xml";
+        //const string cmdLineSchemaXSDResourceName = "ParametersSchema.xsd";
+        //const string cmdLineSchemaXSLTResourceName = "ParametersSchema.xslt";
 
         private ParametersSchema schema;
 
-        public CommandLine()
+        public SyntaxLoader()
         {
             XmlSerializer serializer = new XmlSerializer(typeof(ParametersSchema));
-            string cmdLineSchemaXml = EmbeddedResourceHelper.GetEmbeddedResourceText(cmdLineSchemaResourceName);
+            string cmdLineSchemaXml = EmbeddedResourceHelper.GetEmbeddedResourceText(typeof(SyntaxLoader), cmdLineSchemaResourceName);
 
             using (TextReader reader = new StringReader(cmdLineSchemaXml))
             {
                 schema = (ParametersSchema)serializer.Deserialize(reader);
             }
 
-            //Console.WriteLine(schema.Commands.Count());
+            
+            foreach (Schema.Command cmd in schema.Commands)
+            {
+                Console.Write("id=" + cmd.Id);
+                Console.Write(" name=" + cmd.Name);
+                //Console.Write(" description=" + cmd.Description);
+                Console.WriteLine();
+            }
 
 
             /*

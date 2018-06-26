@@ -5,14 +5,15 @@ using System.Text;
 using TSB.Lib.Program.CommandLine;
 //using System.Threading.Tasks;
 
-namespace TSB.Lib
+namespace TSBLib_Test
 {
     class ConsoleProgram
     {
+        /*
         //эта настройка должна совпадать с настройкой проекта.
         //иначе не будет возможности подгрузить встроенные ресурсы
         static string getDefaultNamespace() { return "TSB.Lib"; }
-
+        */
         static void Main(string[] args)
         {
             //process.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
@@ -25,8 +26,8 @@ namespace TSB.Lib
             Console.WriteLine(appPath);
             */
 
-            
-            CommandLine cl = new CommandLine();
+
+            SyntaxLoader cl = new SyntaxLoader();
 
             Console.ReadLine();
         }

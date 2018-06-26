@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{73E3A752-50C5-4CBE-9526-CDD09F4CF1F7}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>TSB.Lib</RootNamespace>
-    <AssemblyName>TSBLib</AssemblyName>
+    <RootNamespace>TSBLib_Test</RootNamespace>
+    <AssemblyName>TSBLib_Test</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>TSB.Lib.ConsoleProgram</StartupObject>
+    <StartupObject>TSBLib_Test.ConsoleProgram</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -66,19 +66,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program\CommandLine\Parameters.cs" />
     <Compile Include="ProgramCommand.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Program\CommandLine\Schema\ParametersSchema.cs" />
-    <Compile Include="Program\Resource\EmbeddedResource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="TSBToolsServer.snk" />
-    <None Include="Program\CommandLine\ParametersSchema.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -92,8 +86,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CommandLineParametersSchema.xml" />
-    <Content Include="Program\CommandLine\ParametersSchema.xslt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\TSBLib\TSBLib.csproj">
+      <Project>{61bf6575-70d0-41d1-9c48-f3225b4a72c6}</Project>
+      <Name>TSBLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

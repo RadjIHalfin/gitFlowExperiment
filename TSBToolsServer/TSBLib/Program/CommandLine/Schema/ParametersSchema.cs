@@ -10,19 +10,26 @@ namespace TSB.Lib.Program.CommandLine.Schema
     [XmlRoot("ParametersSchema")]
     public class ParametersSchema
     {
-//        [XmlArrayItem("command")]
-//        public Command[] Commands { get; set; }
+        [XmlElement("command")]
+        public Command[] Commands;
+
+        /*
+        [XmlArray("ParametersSchema")]
+        [XmlArrayItem("command")]
+        public List<Command> Commands;
+        */
     }
 
     public class Command
     {
-        [XmlElement("id")]
+        [XmlAttribute("id")]
         public string Id { get; set; }
 
-        [XmlElement("name")]
+        [XmlAttribute("name")]
         public string Name { get; set; }
 
-        [XmlElement("desciption")]
-        public XDocument Description { get; set; }
+//        [XmlElement("description")]
+//        public string Description { get; set; }
+        
     }
 }
