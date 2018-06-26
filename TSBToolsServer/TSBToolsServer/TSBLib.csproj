@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{73E3A752-50C5-4CBE-9526-CDD09F4CF1F7}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>TSBToolsServer</RootNamespace>
-    <AssemblyName>TSBTools</AssemblyName>
+    <RootNamespace>TSB.Lib</RootNamespace>
+    <AssemblyName>TSBLib</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>TSBToolsServer.Program</StartupObject>
+    <StartupObject>TSB.Lib.ConsoleProgram</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -66,13 +66,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Program\CommandLine\Parameters.cs" />
     <Compile Include="ProgramCommand.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Program\CommandLine\Schema\ParametersSchema.cs" />
+    <Compile Include="Program\Resource\EmbeddedResource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="TSBToolsServer.snk" />
+    <None Include="Program\CommandLine\ParametersSchema.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -84,5 +90,10 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommandLineParametersSchema.xml" />
+    <Content Include="Program\CommandLine\ParametersSchema.xslt" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

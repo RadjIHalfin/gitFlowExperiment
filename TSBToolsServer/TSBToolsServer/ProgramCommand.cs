@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
+#if false
+
 namespace Tsb.Lib.Program
 {
     public interface IProgramCommand
@@ -130,3 +132,5 @@ namespace Tsb.Lib.Program
         }
     }
 }
+
+#endif
