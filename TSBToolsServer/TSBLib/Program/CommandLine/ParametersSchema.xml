@@ -1,38 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ParametersSchema>
 
-  <!--  
-  <parser>
-    <syntax>
-      <commands only="yes"/>
-      <options/>
-      <parameters/>
-    </syntax>
-    <optionPrefix>-</optionPrefix>
-    <argValuePrefix>=</argValuePrefix>
-  </parser>
--->
+  <commandLineSyntax>
+    <commandToken title="команда" minOccurs="1" maxOccurs="1"/>
+    <optionToken title="опция" minOccurs="0" maxOccurs="unbounded"
+                 prefix="-" valuePrefix="="/>
+    <paramToken title="параметер" minOccurs="0" maxOccurs="unbounded"/>
+  </commandLineSyntax>
+
   <defaults>
     <commandRef ref="cmdProgramDescription"/>
     <optionRef ref="optWait"/>
   </defaults>
 
   <commands>
-
     <command id="cmdProgramDescription" argName="logo">
       <description>
         Внимание! Программа <runtimeValue name="programName"/> использует обработчик командной строки по умолчанию.
-        <br/>Необходимо определить собственный файл ParametersSchema.xml и указать его в конструкторе обработчика.
+        <br/>Необходимо определить собственный файл ParametersSchema.xml и указать его в конструкторе обработчика командной строки.
       </description>
       <usage>
         Формат командной строки:
         <br/><tab/>
-        <runtimeValue name="programName"/>
+        <runtimeValue name="programName"/> <xsltValue name="commandLineSyntax"/>
+<!--        
         &lt;команда&lt;
         [<xsltValue name="optionPrefix"/>&lt;опция&lt;[<xsltValue name="optionValuePrefix"/>&lt;значение&lt;]
         [...]]
         [&lt;параметр&lt;
         [...]]
+-->        
         <br/>
         <br/>Для справки используйте:
         <br/><tab/><runtimeValue name="programName"/> <commandRef ref="cmdHelp"/>

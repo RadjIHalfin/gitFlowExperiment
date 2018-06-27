@@ -3,61 +3,7 @@
   <xs:element name="ParametersSchema">
     <xs:complexType>
       <xs:sequence minOccurs="1" maxOccurs="1">
-        <!--        
-        <xs:element name="parser">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="optionPrefix" type="xs:string" minOccurs="0" />
-              <xs:element name="argValuePrefix" type="xs:string" minOccurs="0" />
-              <xs:element name="syntax" minOccurs="0" maxOccurs="unbounded">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="options" type="xs:string" minOccurs="0" />
-                    <xs:element name="parameters" type="xs:string" minOccurs="0" />
-                    <xs:element name="commands" minOccurs="0" maxOccurs="unbounded">
-                      <xs:complexType>
-                        <xs:attribute name="only" type="xs:string" />
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="defaultOptions">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="option" minOccurs="0" maxOccurs="unbounded">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="value" type="xs:string" minOccurs="0" msdata:Ordinal="3" />
-                    <xs:element name="description" type="xs:string" minOccurs="0" msdata:Ordinal="4" />
-                    <xs:element name="allowedValues" minOccurs="0" maxOccurs="unbounded">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="numericValues" type="xs:string" minOccurs="0" />
-                          <xs:element name="value" nillable="true" minOccurs="0" maxOccurs="unbounded">
-                            <xs:complexType>
-                              <xs:simpleContent msdata:ColumnName="value_Text" msdata:Ordinal="0">
-                                <xs:extension base="xs:string">
-                                </xs:extension>
-                              </xs:simpleContent>
-                            </xs:complexType>
-                          </xs:element>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                  <xs:attribute name="ref" type="xs:string" />
-                  <xs:attribute name="id" type="xs:string" />
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
--->
-
+        <xs:element ref="commandLineSyntax" minOccurs="1"/>
         <xs:element ref="defaults" minOccurs="1"/>
         <xs:element ref="commands" minOccurs="1"/>
         <xs:element ref="options" minOccurs="0"/>
@@ -93,6 +39,35 @@
     </xs:keyref>
 
   </xs:element>
+
+  <xs:element name="commandLineSyntax">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="1">
+        <xs:element ref="commandToken" minOccurs="1"/>
+        <xs:element ref="optionToken" minOccurs="1"/>
+        <xs:element ref="paramToken" minOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="commandToken" type="typeCommandLineToken"/>
+  <xs:element name="optionToken" type="typeOptionToken"/>
+  <xs:element name="paramToken" type="typeCommandLineToken"/>
+
+  <xs:complexType name="typeOptionToken">
+    <xs:complexContent>
+      <xs:extension base="typeCommandLineToken">
+        <xs:attribute name="prefix" type="xs:string" use="optional"/>
+        <xs:attribute name="valuePrefix" type="xs:string" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="typeCommandLineToken">
+    <xs:attribute name="title" type="xs:string" use="required"/>
+    <xs:attribute name="minOccurs" type="xs:nonNegativeInteger" use="required"/>
+    <xs:attribute name="maxOccurs" type="typeMaxOccurs" use="required"/>
+  </xs:complexType>
 
   <xs:element name="defaults">
     <xs:complexType>
@@ -207,24 +182,31 @@
   <xs:element name="br"/>
   <xs:element name="tab"/>
 
-  <!-- тег для вставки текста полученного xsl трансформацией -->
   <xs:element name="xsltValue">
+    <xs:annotation>
+      <xs:documentation>тег для вставки текста полученного xsl трансформацией</xs:documentation>
+      <xs:documentation>
+        Сейчас в библиотеке реализована выдача значений:
+        commandLineSyntax, commandsWithDescriptions
+      </xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:attribute name="name" use="required" type="xs:string"/>
-      <!-- Сейчас в библиотеке реализована выдача значений:
-      optionPrefix, optionValuePrefix, commandsWithDescriptions
+      <!-- 
       -->
     </xs:complexType>
   </xs:element>
 
-  <!-- тег для вставки текста времени исполнения -->
   <xs:element name="runtimeValue">
+    <xs:annotation>
+      <xs:documentation>тег для вставки текста времени исполнения</xs:documentation>
+      <xs:documentation>Сейчас в библиотеке реализована выдача значения с именем "programName".</xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:attribute name="name" use="required" type="xs:string"/>
-      <!-- Сейчас в библиотеке реализована выдача значения с именем "programName". -->
     </xs:complexType>
   </xs:element>
-  
+
   <xs:element name="regexpTemplate" type="xs:string"/>
   <xs:element name="argValue" type="xs:string"/>
 
@@ -241,4 +223,17 @@
     </xs:simpleType>
   </xs:attribute>
 
+  <xs:simpleType name="typeMaxOccurs">
+    <xs:annotation>
+      <xs:documentation>для аттрибута maxOccurs</xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="xs:nonNegativeInteger">
+      <xs:simpleType>
+        <xs:restriction base="xs:NMTOKEN">
+          <xs:enumeration value="unbounded"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  
 </xs:schema>
