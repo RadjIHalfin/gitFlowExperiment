@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ParametersSchema>
+
+  <syntax>
+    <format>
+      <commands only="yes"/>
+      <options/>
+      <parameters/>
+    </format>
+
+    <optionPrefix>-</optionPrefix>
+    <optionValuePrefix>=</optionValuePrefix>
+  </syntax>
+
+  <defaultOptions>
+    <option ref="optHideAfterStart"/>
+    <option ref="optWait"/>
+  </defaultOptions>
+
+
+  <commands default="cmdProgramDescription">
+
+    <command id="cmdProgramDescription">
+      <description>
+        Программа для поиграться с параметрами.
+        <br/>Программа запускается и висит в памяти. Второй экземпляр может передавать ей команды, в том числе выгружать ее.
+        <br/>Формат командной строки:
+        <br/><tab/>
+        <contextValueRef name="programName"/>
+        &lt;команда&lt;
+        [<contextValueRef name="optionPrefix"/>&lt;опция&lt;[<contextValueRef name="optionValuePrefix"/>&lt;значение&lt;]
+        [...]]
+        [&lt;параметр&lt;
+        [...]]
+        <br/>
+        <br/>Для справки используйте:
+        <br/><tab/><contextValueRef name="programName"/> <command ref="cmdHelp"/>
+      </description>
+    </command>
+
+    <command id="cmdHelp" name="help">
+      <description>
+        Выдает эту подсказку.
+        <br/>Для справки по командам:
+        <br/><contextValueRef name="programName"/> <contextValueRef name="сommandName"/>
+        <br/>Список команд:
+        <br/><contextListRef name="commandList"/>
+      </description>
+
+      <parameter ref="paramCommandName"/>
+    </command>
+
+    <command id="cmdStart" name="start">
+      <description>
+        Запускает себя
+      </description>
+      <option ref="optWait"/>
+      <option ref="optForce">
+        <description>Просит работающий процесс перейти в состояние пригодное для остановки.</description>
+      </option>
+    </command>
+
+    <command id="cmdStop" name="stop">
+      <description>
+        Стопает себя
+      </description>
+      <option ref="optWait"/>
+    </command>
+
+    <command id="cmdUpdate" name="update">
+      <description>
+        Обновляет конфигурацию
+      </description>
+      <option ref="optWait"/>
+    </command>
+
+    <command id="cmdShow" name="show">
+      <description>
+        Показывает нечто
+      </description>
+    </command>
+
+  </commands>
+
+  <param id="paramCommandName">
+    <allowedValues>
+      <commandList/>
+    </allowedValues>
+  </param>
+
+  <option id="optForce"/>
+
+  <option id="optWait">
+    <allowedValues>
+      <numericValues/>
+    </allowedValues>
+    <value>0</value>
+    <!-- set default value-->
+    <description>
+      Задает время ожидания (в секундах) если операция не может быть выполнена сразу.
+    </description>
+  </option>
+
+  <option id="optHideAfterStart">
+    <allowedValues>
+      <value>yes</value>
+      <value>no</value>
+    </allowedValues>
+    <value>yes</value>
+    <!-- set default value-->
+  </option>
+    <option id="optHideAfterStart">
+      <regexpTemplate>^(yes)|(no)$</regexpTemplate>
+      <defaultValue>yes</defaultValue>
+      <description>
+        Скрывает окно процесса после запуска.
+        Допустимые значения 'yes' и 'no'.
+        По умолчанию yes
+      </description>
+    </option>
+
+
+</ParametersSchema>

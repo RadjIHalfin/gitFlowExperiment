@@ -1,9 +1,244 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="XMLSchema1"
-    targetNamespace="http://tempuri.org/XMLSchema1.xsd"
-    elementFormDefault="qualified"
-    xmlns="http://tempuri.org/XMLSchema1.xsd"
-    xmlns:mstns="http://tempuri.org/XMLSchema1.xsd"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
->
+<xs:schema id="ParametersSchema" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ParametersSchema">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="1">
+        <!--        
+        <xs:element name="parser">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="optionPrefix" type="xs:string" minOccurs="0" />
+              <xs:element name="argValuePrefix" type="xs:string" minOccurs="0" />
+              <xs:element name="syntax" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="options" type="xs:string" minOccurs="0" />
+                    <xs:element name="parameters" type="xs:string" minOccurs="0" />
+                    <xs:element name="commands" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="only" type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="defaultOptions">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="option" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="value" type="xs:string" minOccurs="0" msdata:Ordinal="3" />
+                    <xs:element name="description" type="xs:string" minOccurs="0" msdata:Ordinal="4" />
+                    <xs:element name="allowedValues" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="numericValues" type="xs:string" minOccurs="0" />
+                          <xs:element name="value" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:simpleContent msdata:ColumnName="value_Text" msdata:Ordinal="0">
+                                <xs:extension base="xs:string">
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="ref" type="xs:string" />
+                  <xs:attribute name="id" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+-->
+
+        <xs:element ref="defaults" minOccurs="1"/>
+        <xs:element ref="commands" minOccurs="1"/>
+        <xs:element ref="options" minOccurs="0"/>
+        <xs:element ref="params" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+
+    <xs:key name="commandId">
+      <xs:selector xpath="./commands/command"/>
+      <xs:field xpath="@id"/>
+    </xs:key>
+    <xs:keyref name="commandIdRef" refer="commandId">
+      <xs:selector xpath=".//commandRef"/>
+      <xs:field xpath="@ref"/>
+    </xs:keyref>
+
+    <xs:key name="optionId">
+      <xs:selector xpath="./options/option"/>
+      <xs:field xpath="@id"/>
+    </xs:key>
+    <xs:keyref name="optionIdRef" refer="optionId">
+      <xs:selector xpath=".//optionRef"/>
+      <xs:field xpath="@ref"/>
+    </xs:keyref>
+
+    <xs:key name="paramId">
+      <xs:selector xpath="./params/param"/>
+      <xs:field xpath="@id"/>
+    </xs:key>
+    <xs:keyref name="paramIdRef" refer="paramId">
+      <xs:selector xpath=".//paramRef"/>
+      <xs:field xpath="@ref"/>
+    </xs:keyref>
+
+  </xs:element>
+
+  <xs:element name="defaults">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="1">
+        <xs:element ref="commandRef" minOccurs="1"/>
+        <xs:element ref="optionRef" minOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="commands">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+        <xs:element ref="command"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="options">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+        <xs:element ref="option"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="params">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+        <xs:element ref="param"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="command">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="1">
+        <xs:element ref="description" minOccurs="1"/>
+        <xs:element ref="usage" minOccurs="0"/>
+        <xs:element ref="optionRef" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="paramRef" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute ref="id" use="required"/>
+      <xs:attribute ref="argName" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="commandRef">
+    <xs:complexType>
+      <xs:attribute ref="ref" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="option">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="1">
+        <xs:element ref="regexpTemplate"/>
+        <xs:element ref="argValue"/>
+        <xs:element ref="description" minOccurs="1"/>
+      </xs:sequence>
+      <xs:attribute ref="id" use="required"/>
+      <xs:attribute ref="argName" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="optionRef">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="1">
+        <xs:element ref="argValue" minOccurs="1"/>
+        <xs:element ref="description" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute ref="ref" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="param">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="1">
+        <xs:element ref="regexpTemplate"/>
+        <xs:element ref="argValue"/>
+        <xs:element ref="description" minOccurs="1"/>
+      </xs:sequence>
+      <xs:attribute ref="id" use="required"/>
+      <xs:attribute ref="argName" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="paramRef">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="1">
+        <xs:element ref="argValue" minOccurs="1"/>
+        <xs:element ref="description" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute ref="ref" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="description" type="typeDecoratedText"/>
+  <xs:element name="usage" type="typeDecoratedText"/>
+
+  <xs:complexType name="typeDecoratedText" mixed="true">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="br" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="tab"  minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="commandRef"  minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="xsltValue"  minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="runtimeValue"  minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- теги для простой разметки выводимого текста -->
+  <xs:element name="br"/>
+  <xs:element name="tab"/>
+
+  <!-- тег для вставки текста полученного xsl трансформацией -->
+  <xs:element name="xsltValue">
+    <xs:complexType>
+      <xs:attribute name="name" use="required" type="xs:string"/>
+      <!-- Сейчас в библиотеке реализована выдача значений:
+      optionPrefix, optionValuePrefix, commandsWithDescriptions
+      -->
+    </xs:complexType>
+  </xs:element>
+
+  <!-- тег для вставки текста времени исполнения -->
+  <xs:element name="runtimeValue">
+    <xs:complexType>
+      <xs:attribute name="name" use="required" type="xs:string"/>
+      <!-- Сейчас в библиотеке реализована выдача значения с именем "programName". -->
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="regexpTemplate" type="xs:string"/>
+  <xs:element name="argValue" type="xs:string"/>
+
+  <xs:attribute name="name" type="xs:NCName"/>
+
+  <xs:attribute name="id" type="xs:NCName"/>
+  <xs:attribute name="ref" type="xs:NCName"/>
+
+  <xs:attribute name="argName">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="^[\d\w]+$"></xs:pattern>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+
 </xs:schema>

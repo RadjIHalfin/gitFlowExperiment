@@ -51,8 +51,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Program\CommandLine\ParametersSchema.xsc">
+      <DependentUpon>ParametersSchema.xsd</DependentUpon>
+    </None>
     <None Include="Program\CommandLine\ParametersSchema.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Program\CommandLine\ParametersSchema.xss">
+      <DependentUpon>ParametersSchema.xsd</DependentUpon>
     </None>
     <None Include="TSBLib.snk" />
   </ItemGroup>

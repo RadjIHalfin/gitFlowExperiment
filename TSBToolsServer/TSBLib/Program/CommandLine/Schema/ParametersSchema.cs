@@ -28,8 +28,16 @@ namespace TSB.Lib.Program.CommandLine.Schema
         [XmlAttribute("name")]
         public string Name { get; set; }
 
-//        [XmlElement("description")]
-//        public string Description { get; set; }
+        [XmlElement("description")]
+        public Description description;
         
     }
+
+    public class Description
+    {
+        [XmlText]
+        public string Text { get; set; }
+    }
+
+
 }

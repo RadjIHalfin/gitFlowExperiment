@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ParametersSchema>
+
+  <parser>
+    <syntax>
+      <commands only="yes"/>
+      <options/>
+      <parameters/>
+    </syntax>
+    <optionPrefix>-</optionPrefix>
+    <optionValuePrefix>=</optionValuePrefix>
+  </parser>
+
+  <defaultOptions>
+    <option ref="optHideAfterStart"/>
+    <option ref="optWait"/>
+  </defaultOptions>
+
+  <commands default="cmdProgramDescription">
+    <!--
+
+    <command id="cmdProgramDescription">
+      <description>
+        Внимание! Программа <contextValue name="programName"/> использует обработчик командной строки по умолчанию.
+        <br/>Необходимо определить собственный файл ParametersSchema.xml и указать его в конструкторе обработчика.
+      </description>
+      <usage>
+        Формат командной строки:
+        <br/><tab/>
+        <contextValue name="programName"/>
+        &lt;команда&lt;
+        [<schemaValue name="optionPrefix"/>&lt;опция&lt;[<schemaValue name="optionValuePrefix"/>&lt;значение&lt;]
+        [...]]
+        [&lt;параметр&lt;
+        [...]]
+        <br/>
+        <br/>Для справки используйте:
+        <br/><tab/><contextValue name="programName"/> <command ref="cmdHelp"/>
+      </usage>
+    </command>
+
+<command id="cmdHelp" name="help">
+      <description>
+        Выдает эту подсказку.
+      </description>
+      <usage>
+        Для справки по командам:
+        <br/><contextValue name="programName"/> <command ref="cmdHelp"/> &lt;команда&lt;/>
+        <br/>Список команд:
+        <br/><schemaValue name="commandsWithDescriptions"/>
+      </usage>
+
+      <param ref="paramCommandName"/>
+    </command>
+-->
+
+    <command id="cmdReadLine" name="readline">
+      <description>
+        Читает строку (используется значение времени ожидания по умолчанию).
+      </description>
+    </command>
+
+    <command id="cmdReadLine5" name="readline5">
+      <description>
+        Читает строку. В случае неготовности ожидает ввода.
+      </description>
+      <option ref="optWait">
+        <value>5</value>
+        <description>Время ожидания 5 секунд.</description>
+      </option>
+    </command>
+
+</commands>
+
+  <param id="paramCommandName">
+    <allowedValues>
+      <commandNames/>
+    </allowedValues>
+  </param>
+
+
+  <option id="optWait">
+    <allowedValues>
+      <numericValues/>
+    </allowedValues>
+    <value>0</value>
+    <description>
+      Задает время ожидания (в секундах) если операция не может быть выполнена сразу.
+    </description>
+  </option>
+
+  <option id="optHideAfterStart">
+    <allowedValues>
+      <value>yes</value>
+      <value>no</value>
+    </allowedValues>
+    <value>yes</value>
+  </option>
+
+    <option id="optHideAfterStart">
+      <regexpTemplate>^(yes)|(no)$</regexpTemplate>
+      <defaultValue>yes</defaultValue>
+      <description>
+        Скрывает окно процесса после запуска.
+        Допустимые значения 'yes' и 'no'.
+        По умолчанию yes
+      </description>
+    </option>
+
+
+</ParametersSchema>
