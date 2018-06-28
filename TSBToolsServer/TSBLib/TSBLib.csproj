@@ -45,20 +45,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program\CommandLine\Parameters.cs" />
+    <Compile Include="Program\CommandLine\ParametersSchema.cs">
+      <DependentUpon>ParametersSchema.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program\CommandLine\Schema\ParametersSchema.cs" />
     <Compile Include="Program\Resource\EmbeddedResource.cs" />
     <Compile Include="TSBLib.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Program\CommandLine\ParametersSchema.xsc">
-      <DependentUpon>ParametersSchema.xsd</DependentUpon>
-    </None>
     <None Include="Program\CommandLine\ParametersSchema.xsd">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Program\CommandLine\ParametersSchema.xss">
-      <DependentUpon>ParametersSchema.xsd</DependentUpon>
     </None>
     <None Include="TSBLib.snk" />
   </ItemGroup>

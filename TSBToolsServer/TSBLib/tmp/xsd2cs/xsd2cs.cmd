@@ -1,0 +1,1 @@
+..\..\xsd.cmd ParametersSchema.xsd /classes /l:CS
