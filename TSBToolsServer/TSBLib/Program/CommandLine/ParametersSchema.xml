@@ -15,46 +15,145 @@
 
   <commands>
     <command id="cmdProgramDescription" argName="logo">
-      <description>
-        Внимание! Программа <runtimeValue name="programName"/> использует обработчик командной строки по умолчанию.
-        <br/>Необходимо определить собственный файл ParametersSchema.xml и указать его в конструкторе обработчика командной строки.
+      <description type="short">
+        <line>
+          <text>Баннер при вызове без параметров</text>
+        </line>
       </description>
-      <usage>
-        Формат командной строки:
-        <br/><tab/><runtimeValue name="programName"/> <xsltValue name="commandLineSyntax"/>
-        <br/>
-        <br/>Для справки используйте:
-        <br/><tab/><runtimeValue name="programName"/> <commandRef ref="cmdHelp"/>
-      </usage>
+      <description type="common">
+        <line>
+          <text>Внимание! Программа</text>
+          <space/>
+          <runtimeValue name="programName"/>
+          <space/>
+          <text>использует обработчик командной строки по умолчанию.</text>
+        </line>
+        <line>
+          <text>Необходимо определить собственный файл ParametersSchema.xml и указать его в конструкторе обработчика командной строки.</text>
+        </line>
+      </description>
+      <description type="usage">
+        <line>
+          <text>Формат командной строки:</text>
+        </line>
+        <line>
+          <tab/>
+          <runtimeValue name="programName"/>
+          <xsltValue name="commandLineSyntax"/>
+        </line>
+        <line/>
+        <line>
+          <text>Для справки используйте:</text>
+        </line>
+        <line>
+          <tab/>
+          <runtimeValue name="programName"/>
+          <space/>
+          <xsltValue name="commandName" ref="cmdHelp"/>
+        </line>
+      </description >
     </command>
 
     <command id="cmdHelp" argName="help">
-      <description>
-        Выдает эту подсказку.
+      <description type="short">
+        <line>
+          <text>Выдает информацию о пользовании справкой.</text>
+        </line>
       </description>
-      <usage>
-        Для справки по командам:
-        <br/><tab/><runtimeValue name="programName"/> <commandRef ref="cmdHelp"/> &lt;команда&gt;
-        <br/>Список команд:
+      <description type="common">
+        <line>
+          <text>Выдает эту подсказку.</text>
+        </line>
+      </description>
+      <description type="usage">
+        <line>
+          <text>Для справки по команде или опции:</text>
+        </line>
+        <line>
+          <tab/>
+          <runtimeValue name="programName"/>
+          <space/>
+          <xsltValue name="commandName" ref="cmdHelp"/>
+          <space/>
+          <text>&lt;команда&gt;|-&lt;опция&gt;</text>
+        </line>
+        <line/>
+        <line>
+          <text>Список команд:</text>
+        </line>
         <xsltValue name="commandsWithDescriptions"/>
-      </usage>
+        <line/>
+        <line>
+          <text>Список опций:</text>
+        </line>
+        <xsltValue name="optionsWithDescriptions"/>
+      </description>
 
       <paramRef ref="paramCommandName"/>
     </command>
 
     <command id="cmdReadLine" argName="readline">
-      <description>
-        Читает строку (используется значение времени ожидания по умолчанию).
+      <description type="short">
+        <line>
+          <text>Читает строку.</text>
+        </line>
+      </description>
+      <description type="common">
+        <line>
+          <text>Читает строку (используется значение времени ожидания по умолчанию).</text>
+        </line>
+      </description>
+      <description type="usage">
+        <line>
+          <text>Использование:</text>
+        </line>
+        <line>
+          <tab/>
+          <runtimeValue name="programName"/>
+          <space/>
+          <xsltValue name="commandName" ref="cmdReadLine"/>
+          <space/>
+          <text>[</text>
+          <xsltValue name="optionSyntax" ref="optWait"/>
+          <text>]</text>
+        </line>
       </description>
     </command>
 
     <command id="cmdReadLine5" argName="readline5">
-      <description>
-        Читает строку. В случае неготовности ожидает ввода.
+      <description type="short">
+        <line>
+          <text>Читает строку с ожиданием.</text>
+        </line>
       </description>
+      <description type="common">
+        <line>
+          <text>Читает строку. В случае неготовности ожидает ввода (по умолчанию 5 сек).</text>
+        </line>
+      </description>
+      <description type="usage">
+        <line>
+          <text>Использование:</text>
+        </line>
+        <line>
+          <tab/>
+          <runtimeValue name="programName"/>
+          <space/>
+          <xsltValue name="commandName" ref="cmdReadLine5"/>
+          <space/>
+          <text>[</text>
+          <xsltValue name="optionSyntax" ref="optWait"/>
+          <text>]</text>
+        </line>
+      </description>
+
       <optionRef ref="optWait">
         <argValue>5</argValue>
-        <description>Время ожидания по умолчанию установлено на 5 секунд.</description>
+        <description>
+          <line>
+            <text>Время ожидания по умолчанию установлено на 5 секунд.</text>
+          </line>
+        </description>
       </optionRef>
     </command>
 
@@ -64,10 +163,21 @@
     <option id="optWait" argName="wait">
       <regexpTemplate>^([0-9])|([1-9]\d)|([1-2]\d\d)|(300)$</regexpTemplate>
       <argValue>0</argValue>
-      <description>
-        Задает время ожидания (в секундах) если операция не может быть выполнена сразу.
-        Допустимые значения числовые в диапазоне от 0 до 300.
-        По умолчанию 0 (т.е. выдает ошибку в случае неозможности выполнить операцию без ожидания).
+      <description type="short">
+        <line>
+          <text>Задает время ожидания (в секундах) если операция не может быть выполнена сразу.</text>
+        </line>
+      </description>
+      <description type="common">
+        <line>
+          <text>Задает время ожидания (в секундах) если операция не может быть выполнена сразу.</text>
+        </line>
+        <line>
+          <text>Допустимые значения числовые в диапазоне от 0 до 300.</text>
+        </line>
+        <line>
+          <text>По умолчанию 0 (т.е. выдает ошибку в случае неозможности выполнить операцию без ожидания).</text>
+        </line>
       </description>
     </option>
   </options>
@@ -76,8 +186,18 @@
     <param id="paramCommandName" argName="command">
       <regexpTemplate>^[\d\w]+$</regexpTemplate>
       <argValue>logo</argValue>
-      <description>
-        Имя команды.
+      <description type="short">
+        <line>
+          <text>Имя команды.</text>
+        </line>
+      </description>
+      <description type="common">
+        <line>
+          <text>Имя команды.</text>
+        </line>
+        <line>
+          <text>Используется при получении справки по конкретной команде.</text>
+        </line>
       </description>
     </param>
   </params>

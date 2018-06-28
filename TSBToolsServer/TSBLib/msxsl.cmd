@@ -1,1 +1,1 @@
-"D:\PROGRAMS\msxsl.exe" %*
+"%SystemDrive%\programs\msxsl.exe" %*

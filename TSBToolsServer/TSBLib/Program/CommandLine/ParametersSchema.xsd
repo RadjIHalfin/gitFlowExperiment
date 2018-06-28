@@ -106,8 +106,7 @@
   <xs:element name="command">
     <xs:complexType>
       <xs:sequence minOccurs="0" maxOccurs="1">
-        <xs:element ref="description" minOccurs="1"/>
-        <xs:element ref="usage" minOccurs="0"/>
+        <xs:element ref="description" minOccurs="1" maxOccurs="unbounded"/>
         <xs:element ref="optionRef" minOccurs="0" maxOccurs="unbounded"/>
         <xs:element ref="paramRef" minOccurs="0" maxOccurs="unbounded"/>
       </xs:sequence>
@@ -127,7 +126,7 @@
       <xs:sequence minOccurs="0" maxOccurs="1">
         <xs:element ref="regexpTemplate"/>
         <xs:element ref="argValue"/>
-        <xs:element ref="description" minOccurs="1"/>
+        <xs:element ref="description" minOccurs="1" maxOccurs="unbounded"/>
       </xs:sequence>
       <xs:attribute ref="id" use="required"/>
       <xs:attribute ref="argName" use="required"/>
@@ -138,7 +137,7 @@
     <xs:complexType>
       <xs:sequence minOccurs="0" maxOccurs="1">
         <xs:element ref="argValue" minOccurs="1"/>
-        <xs:element ref="description" minOccurs="0"/>
+        <xs:element ref="description" minOccurs="0" maxOccurs="unbounded"/>
       </xs:sequence>
       <xs:attribute ref="ref" use="required"/>
     </xs:complexType>
@@ -149,7 +148,7 @@
       <xs:sequence minOccurs="0" maxOccurs="1">
         <xs:element ref="regexpTemplate"/>
         <xs:element ref="argValue"/>
-        <xs:element ref="description" minOccurs="1"/>
+        <xs:element ref="description" minOccurs="1" maxOccurs="unbounded"/>
       </xs:sequence>
       <xs:attribute ref="id" use="required"/>
       <xs:attribute ref="argName" use="required"/>
@@ -166,22 +165,43 @@
     </xs:complexType>
   </xs:element>
 
-  <xs:element name="description" type="typeDecoratedText"/>
-  <xs:element name="usage" type="typeDecoratedText"/>
+  <xs:element name="description">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="typeDecoratedText">
+          <xs:annotation>
+            <xs:documentation>
+              type позволяет задавать несколько описаний (common, short, usage, full и т.д.) по умолчанию 'common'
+            </xs:documentation>
+          </xs:annotation>
+          <xs:attribute name="type" use="optional" type="xs:string" default="common"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
 
-  <xs:complexType name="typeDecoratedText" mixed="true">
+  <!-- теги для простой разметки выводимого текста -->
+
+  <!-- текстовые узлы, чтобы identity не мешал форматировать -->
+  <xs:element name="text" type="xs:string"/>
+  <!-- блок заканчивающийся переводом строки -->
+  <xs:element name="line" type="typeDecoratedText"/>
+  <!-- табуляция -->
+  <xs:element name="tab"/>
+  <!-- пробел -->
+  <xs:element name="space"/>
+
+  <xs:complexType name="typeDecoratedText" mixed="false">
     <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="br" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="text" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="line" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="space"  minOccurs="0" maxOccurs="unbounded"/>
       <xs:element ref="tab"  minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element ref="commandRef"  minOccurs="0" maxOccurs="unbounded"/>
       <xs:element ref="xsltValue"  minOccurs="0" maxOccurs="unbounded"/>
       <xs:element ref="runtimeValue"  minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
-  <!-- теги для простой разметки выводимого текста -->
-  <xs:element name="br"/>
-  <xs:element name="tab"/>
 
   <xs:element name="xsltValue">
     <xs:annotation>
@@ -193,8 +213,7 @@
     </xs:annotation>
     <xs:complexType>
       <xs:attribute name="name" use="required" type="xs:string"/>
-      <!-- 
-      -->
+      <xs:attribute name="ref" use="optional" type="xs:NCName"/>
     </xs:complexType>
   </xs:element>
 
@@ -236,5 +255,5 @@
       </xs:simpleType>
     </xs:union>
   </xs:simpleType>
-  
+
 </xs:schema>
