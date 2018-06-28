@@ -8,838 +8,839 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Xml.Serialization;
-
 // 
 // Этот исходный код был создан с помощью xsd, версия=4.6.1055.0.
 // 
-
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
-public partial class ParametersSchema {
+namespace TSB.Lib.Program.CommandLine {
+    using System.Xml.Serialization;
     
-    private commandLineSyntax commandLineSyntaxField;
-    
-    private defaults defaultsField;
-    
-    private commands commandsField;
-    
-    private options optionsField;
-    
-    private @params paramsField;
     
     /// <remarks/>
-    public commandLineSyntax commandLineSyntax {
-        get {
-            return this.commandLineSyntaxField;
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+    public partial class ParametersSchema {
+        
+        private commandLineSyntax commandLineSyntaxField;
+        
+        private defaults defaultsField;
+        
+        private commands commandsField;
+        
+        private options optionsField;
+        
+        private @params paramsField;
+        
+        /// <remarks/>
+        public commandLineSyntax commandLineSyntax {
+            get {
+                return this.commandLineSyntaxField;
+            }
+            set {
+                this.commandLineSyntaxField = value;
+            }
         }
-        set {
-            this.commandLineSyntaxField = value;
+        
+        /// <remarks/>
+        public defaults defaults {
+            get {
+                return this.defaultsField;
+            }
+            set {
+                this.defaultsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public commands commands {
+            get {
+                return this.commandsField;
+            }
+            set {
+                this.commandsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public options options {
+            get {
+                return this.optionsField;
+            }
+            set {
+                this.optionsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public @params @params {
+            get {
+                return this.paramsField;
+            }
+            set {
+                this.paramsField = value;
+            }
         }
     }
     
     /// <remarks/>
-    public defaults defaults {
-        get {
-            return this.defaultsField;
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+    public partial class commandLineSyntax {
+        
+        private typeCommandLineToken commandTokenField;
+        
+        private typeOptionToken optionTokenField;
+        
+        private typeCommandLineToken paramTokenField;
+        
+        /// <remarks/>
+        public typeCommandLineToken commandToken {
+            get {
+                return this.commandTokenField;
+            }
+            set {
+                this.commandTokenField = value;
+            }
         }
-        set {
-            this.defaultsField = value;
+        
+        /// <remarks/>
+        public typeOptionToken optionToken {
+            get {
+                return this.optionTokenField;
+            }
+            set {
+                this.optionTokenField = value;
+            }
         }
-    }
-    
-    /// <remarks/>
-    public commands commands {
-        get {
-            return this.commandsField;
-        }
-        set {
-            this.commandsField = value;
-        }
-    }
-    
-    /// <remarks/>
-    public options options {
-        get {
-            return this.optionsField;
-        }
-        set {
-            this.optionsField = value;
-        }
-    }
-    
-    /// <remarks/>
-    public @params @params {
-        get {
-            return this.paramsField;
-        }
-        set {
-            this.paramsField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
-public partial class commandLineSyntax {
-    
-    private typeCommandLineToken commandTokenField;
-    
-    private typeOptionToken optionTokenField;
-    
-    private typeCommandLineToken paramTokenField;
-    
-    /// <remarks/>
-    public typeCommandLineToken commandToken {
-        get {
-            return this.commandTokenField;
-        }
-        set {
-            this.commandTokenField = value;
+        
+        /// <remarks/>
+        public typeCommandLineToken paramToken {
+            get {
+                return this.paramTokenField;
+            }
+            set {
+                this.paramTokenField = value;
+            }
         }
     }
     
     /// <remarks/>
-    public typeOptionToken optionToken {
-        get {
-            return this.optionTokenField;
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(typeOptionToken))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlRootAttribute("commandToken", Namespace="", IsNullable=false)]
+    public partial class typeCommandLineToken {
+        
+        private string titleField;
+        
+        private string minOccursField;
+        
+        private string maxOccursField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string title {
+            get {
+                return this.titleField;
+            }
+            set {
+                this.titleField = value;
+            }
         }
-        set {
-            this.optionTokenField = value;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="nonNegativeInteger")]
+        public string minOccurs {
+            get {
+                return this.minOccursField;
+            }
+            set {
+                this.minOccursField = value;
+            }
         }
-    }
-    
-    /// <remarks/>
-    public typeCommandLineToken paramToken {
-        get {
-            return this.paramTokenField;
-        }
-        set {
-            this.paramTokenField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(typeOptionToken))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlRootAttribute("commandToken", Namespace="", IsNullable=false)]
-public partial class typeCommandLineToken {
-    
-    private string titleField;
-    
-    private string minOccursField;
-    
-    private string maxOccursField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public string title {
-        get {
-            return this.titleField;
-        }
-        set {
-            this.titleField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute(DataType="nonNegativeInteger")]
-    public string minOccurs {
-        get {
-            return this.minOccursField;
-        }
-        set {
-            this.minOccursField = value;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string maxOccurs {
+            get {
+                return this.maxOccursField;
+            }
+            set {
+                this.maxOccursField = value;
+            }
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public string maxOccurs {
-        get {
-            return this.maxOccursField;
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlRootAttribute("optionToken", Namespace="", IsNullable=false)]
+    public partial class typeOptionToken : typeCommandLineToken {
+        
+        private string valueTitleField;
+        
+        private string prefixField;
+        
+        private string valuePrefixField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string valueTitle {
+            get {
+                return this.valueTitleField;
+            }
+            set {
+                this.valueTitleField = value;
+            }
         }
-        set {
-            this.maxOccursField = value;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string prefix {
+            get {
+                return this.prefixField;
+            }
+            set {
+                this.prefixField = value;
+            }
         }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlRootAttribute("optionToken", Namespace="", IsNullable=false)]
-public partial class typeOptionToken : typeCommandLineToken {
-    
-    private string valueTitleField;
-    
-    private string prefixField;
-    
-    private string valuePrefixField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public string valueTitle {
-        get {
-            return this.valueTitleField;
-        }
-        set {
-            this.valueTitleField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public string prefix {
-        get {
-            return this.prefixField;
-        }
-        set {
-            this.prefixField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public string valuePrefix {
-        get {
-            return this.valuePrefixField;
-        }
-        set {
-            this.valuePrefixField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
-public partial class defaults {
-    
-    private commandRef commandRefField;
-    
-    private optionRef optionRefField;
-    
-    /// <remarks/>
-    public commandRef commandRef {
-        get {
-            return this.commandRefField;
-        }
-        set {
-            this.commandRefField = value;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string valuePrefix {
+            get {
+                return this.valuePrefixField;
+            }
+            set {
+                this.valuePrefixField = value;
+            }
         }
     }
     
     /// <remarks/>
-    public optionRef optionRef {
-        get {
-            return this.optionRefField;
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+    public partial class defaults {
+        
+        private commandRef commandRefField;
+        
+        private optionRef optionRefField;
+        
+        /// <remarks/>
+        public commandRef commandRef {
+            get {
+                return this.commandRefField;
+            }
+            set {
+                this.commandRefField = value;
+            }
         }
-        set {
-            this.optionRefField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
-public partial class commandRef {
-    
-    private string refField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute(DataType="NCName")]
-    public string @ref {
-        get {
-            return this.refField;
-        }
-        set {
-            this.refField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
-public partial class optionRef {
-    
-    private string argValueField;
-    
-    private description[] descriptionField;
-    
-    private string refField;
-    
-    /// <remarks/>
-    public string argValue {
-        get {
-            return this.argValueField;
-        }
-        set {
-            this.argValueField = value;
+        
+        /// <remarks/>
+        public optionRef optionRef {
+            get {
+                return this.optionRefField;
+            }
+            set {
+                this.optionRefField = value;
+            }
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("description")]
-    public description[] description {
-        get {
-            return this.descriptionField;
-        }
-        set {
-            this.descriptionField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute(DataType="NCName")]
-    public string @ref {
-        get {
-            return this.refField;
-        }
-        set {
-            this.refField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
-public partial class description : typeDecoratedText {
-    
-    private string typeField;
-    
-    public description() {
-        this.typeField = "common";
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    [System.ComponentModel.DefaultValueAttribute("common")]
-    public string type {
-        get {
-            return this.typeField;
-        }
-        set {
-            this.typeField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlRootAttribute("line", Namespace="", IsNullable=false)]
-public partial class typeDecoratedText {
-    
-    private string[] textField;
-    
-    private typeDecoratedText[] lineField;
-    
-    private object[] spaceField;
-    
-    private object[] tabField;
-    
-    private xsltValue[] xsltValueField;
-    
-    private runtimeValue[] runtimeValueField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("text")]
-    public string[] text {
-        get {
-            return this.textField;
-        }
-        set {
-            this.textField = value;
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+    public partial class commandRef {
+        
+        private string refField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="NCName")]
+        public string @ref {
+            get {
+                return this.refField;
+            }
+            set {
+                this.refField = value;
+            }
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("line")]
-    public typeDecoratedText[] line {
-        get {
-            return this.lineField;
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+    public partial class optionRef {
+        
+        private string argValueField;
+        
+        private description[] descriptionField;
+        
+        private string refField;
+        
+        /// <remarks/>
+        public string argValue {
+            get {
+                return this.argValueField;
+            }
+            set {
+                this.argValueField = value;
+            }
         }
-        set {
-            this.lineField = value;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("description")]
+        public description[] description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                this.descriptionField = value;
+            }
         }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("space")]
-    public object[] space {
-        get {
-            return this.spaceField;
-        }
-        set {
-            this.spaceField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("tab")]
-    public object[] tab {
-        get {
-            return this.tabField;
-        }
-        set {
-            this.tabField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("xsltValue")]
-    public xsltValue[] xsltValue {
-        get {
-            return this.xsltValueField;
-        }
-        set {
-            this.xsltValueField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("runtimeValue")]
-    public runtimeValue[] runtimeValue {
-        get {
-            return this.runtimeValueField;
-        }
-        set {
-            this.runtimeValueField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
-public partial class xsltValue {
-    
-    private string nameField;
-    
-    private string refField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public string name {
-        get {
-            return this.nameField;
-        }
-        set {
-            this.nameField = value;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="NCName")]
+        public string @ref {
+            get {
+                return this.refField;
+            }
+            set {
+                this.refField = value;
+            }
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute(DataType="NCName")]
-    public string @ref {
-        get {
-            return this.refField;
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+    public partial class description : typeDecoratedText {
+        
+        private string typeField;
+        
+        public description() {
+            this.typeField = "common";
         }
-        set {
-            this.refField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
-public partial class runtimeValue {
-    
-    private string nameField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public string name {
-        get {
-            return this.nameField;
-        }
-        set {
-            this.nameField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
-public partial class commands {
-    
-    private command[] commandField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("command")]
-    public command[] command {
-        get {
-            return this.commandField;
-        }
-        set {
-            this.commandField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
-public partial class command {
-    
-    private description[] descriptionField;
-    
-    private optionRef[] optionRefField;
-    
-    private paramRef[] paramRefField;
-    
-    private string idField;
-    
-    private string argNameField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("description")]
-    public description[] description {
-        get {
-            return this.descriptionField;
-        }
-        set {
-            this.descriptionField = value;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [System.ComponentModel.DefaultValueAttribute("common")]
+        public string type {
+            get {
+                return this.typeField;
+            }
+            set {
+                this.typeField = value;
+            }
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("optionRef")]
-    public optionRef[] optionRef {
-        get {
-            return this.optionRefField;
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlRootAttribute("line", Namespace="", IsNullable=false)]
+    public partial class typeDecoratedText {
+        
+        private string[] textField;
+        
+        private typeDecoratedText[] lineField;
+        
+        private object[] spaceField;
+        
+        private object[] tabField;
+        
+        private xsltValue[] xsltValueField;
+        
+        private runtimeValue[] runtimeValueField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("text")]
+        public string[] text {
+            get {
+                return this.textField;
+            }
+            set {
+                this.textField = value;
+            }
         }
-        set {
-            this.optionRefField = value;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("line")]
+        public typeDecoratedText[] line {
+            get {
+                return this.lineField;
+            }
+            set {
+                this.lineField = value;
+            }
         }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("paramRef")]
-    public paramRef[] paramRef {
-        get {
-            return this.paramRefField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("space")]
+        public object[] space {
+            get {
+                return this.spaceField;
+            }
+            set {
+                this.spaceField = value;
+            }
         }
-        set {
-            this.paramRefField = value;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("tab")]
+        public object[] tab {
+            get {
+                return this.tabField;
+            }
+            set {
+                this.tabField = value;
+            }
         }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute(DataType="NCName")]
-    public string id {
-        get {
-            return this.idField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("xsltValue")]
+        public xsltValue[] xsltValue {
+            get {
+                return this.xsltValueField;
+            }
+            set {
+                this.xsltValueField = value;
+            }
         }
-        set {
-            this.idField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public string argName {
-        get {
-            return this.argNameField;
-        }
-        set {
-            this.argNameField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
-public partial class paramRef {
-    
-    private string argValueField;
-    
-    private description descriptionField;
-    
-    private string refField;
-    
-    /// <remarks/>
-    public string argValue {
-        get {
-            return this.argValueField;
-        }
-        set {
-            this.argValueField = value;
-        }
-    }
-    
-    /// <remarks/>
-    public description description {
-        get {
-            return this.descriptionField;
-        }
-        set {
-            this.descriptionField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute(DataType="NCName")]
-    public string @ref {
-        get {
-            return this.refField;
-        }
-        set {
-            this.refField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
-public partial class options {
-    
-    private option[] optionField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("option")]
-    public option[] option {
-        get {
-            return this.optionField;
-        }
-        set {
-            this.optionField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
-public partial class option {
-    
-    private string regexpTemplateField;
-    
-    private string argValueField;
-    
-    private description[] descriptionField;
-    
-    private string idField;
-    
-    private string argNameField;
-    
-    /// <remarks/>
-    public string regexpTemplate {
-        get {
-            return this.regexpTemplateField;
-        }
-        set {
-            this.regexpTemplateField = value;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("runtimeValue")]
+        public runtimeValue[] runtimeValue {
+            get {
+                return this.runtimeValueField;
+            }
+            set {
+                this.runtimeValueField = value;
+            }
         }
     }
     
     /// <remarks/>
-    public string argValue {
-        get {
-            return this.argValueField;
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+    public partial class xsltValue {
+        
+        private string nameField;
+        
+        private string refField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
         }
-        set {
-            this.argValueField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("description")]
-    public description[] description {
-        get {
-            return this.descriptionField;
-        }
-        set {
-            this.descriptionField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute(DataType="NCName")]
-    public string id {
-        get {
-            return this.idField;
-        }
-        set {
-            this.idField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public string argName {
-        get {
-            return this.argNameField;
-        }
-        set {
-            this.argNameField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
-public partial class @params {
-    
-    private param[] paramField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("param")]
-    public param[] param {
-        get {
-            return this.paramField;
-        }
-        set {
-            this.paramField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
-public partial class param {
-    
-    private string regexpTemplateField;
-    
-    private string argValueField;
-    
-    private description[] descriptionField;
-    
-    private string idField;
-    
-    private string argNameField;
-    
-    /// <remarks/>
-    public string regexpTemplate {
-        get {
-            return this.regexpTemplateField;
-        }
-        set {
-            this.regexpTemplateField = value;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="NCName")]
+        public string @ref {
+            get {
+                return this.refField;
+            }
+            set {
+                this.refField = value;
+            }
         }
     }
     
     /// <remarks/>
-    public string argValue {
-        get {
-            return this.argValueField;
-        }
-        set {
-            this.argValueField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("description")]
-    public description[] description {
-        get {
-            return this.descriptionField;
-        }
-        set {
-            this.descriptionField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute(DataType="NCName")]
-    public string id {
-        get {
-            return this.idField;
-        }
-        set {
-            this.idField = value;
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+    public partial class runtimeValue {
+        
+        private string nameField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public string argName {
-        get {
-            return this.argNameField;
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+    public partial class commands {
+        
+        private command[] commandField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("command")]
+        public command[] command {
+            get {
+                return this.commandField;
+            }
+            set {
+                this.commandField = value;
+            }
         }
-        set {
-            this.argNameField = value;
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+    public partial class command {
+        
+        private description[] descriptionField;
+        
+        private optionRef[] optionRefField;
+        
+        private paramRef[] paramRefField;
+        
+        private string idField;
+        
+        private string argNameField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("description")]
+        public description[] description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                this.descriptionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("optionRef")]
+        public optionRef[] optionRef {
+            get {
+                return this.optionRefField;
+            }
+            set {
+                this.optionRefField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("paramRef")]
+        public paramRef[] paramRef {
+            get {
+                return this.paramRefField;
+            }
+            set {
+                this.paramRefField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="NCName")]
+        public string id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string argName {
+            get {
+                return this.argNameField;
+            }
+            set {
+                this.argNameField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+    public partial class paramRef {
+        
+        private string argValueField;
+        
+        private description descriptionField;
+        
+        private string refField;
+        
+        /// <remarks/>
+        public string argValue {
+            get {
+                return this.argValueField;
+            }
+            set {
+                this.argValueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public description description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                this.descriptionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="NCName")]
+        public string @ref {
+            get {
+                return this.refField;
+            }
+            set {
+                this.refField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+    public partial class options {
+        
+        private option[] optionField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("option")]
+        public option[] option {
+            get {
+                return this.optionField;
+            }
+            set {
+                this.optionField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+    public partial class option {
+        
+        private string regexpTemplateField;
+        
+        private string argValueField;
+        
+        private description[] descriptionField;
+        
+        private string idField;
+        
+        private string argNameField;
+        
+        /// <remarks/>
+        public string regexpTemplate {
+            get {
+                return this.regexpTemplateField;
+            }
+            set {
+                this.regexpTemplateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string argValue {
+            get {
+                return this.argValueField;
+            }
+            set {
+                this.argValueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("description")]
+        public description[] description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                this.descriptionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="NCName")]
+        public string id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string argName {
+            get {
+                return this.argNameField;
+            }
+            set {
+                this.argNameField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+    public partial class @params {
+        
+        private param[] paramField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("param")]
+        public param[] param {
+            get {
+                return this.paramField;
+            }
+            set {
+                this.paramField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+    public partial class param {
+        
+        private string regexpTemplateField;
+        
+        private string argValueField;
+        
+        private description[] descriptionField;
+        
+        private string idField;
+        
+        private string argNameField;
+        
+        /// <remarks/>
+        public string regexpTemplate {
+            get {
+                return this.regexpTemplateField;
+            }
+            set {
+                this.regexpTemplateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string argValue {
+            get {
+                return this.argValueField;
+            }
+            set {
+                this.argValueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("description")]
+        public description[] description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                this.descriptionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="NCName")]
+        public string id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string argName {
+            get {
+                return this.argNameField;
+            }
+            set {
+                this.argNameField = value;
+            }
         }
     }
 }

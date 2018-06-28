@@ -27,7 +27,7 @@ namespace TSBLib_Test
             */
 
 
-            SyntaxLoader cl = new SyntaxLoader();
+            ParametersSchemaLoader cl = new ParametersSchemaLoader();
 
             Console.ReadLine();
         }

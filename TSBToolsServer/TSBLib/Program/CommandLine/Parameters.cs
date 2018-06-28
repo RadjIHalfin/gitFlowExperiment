@@ -5,13 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 using System.Xml.Serialization;
-using TSB.Lib.Program.CommandLine.Schema;
 using TSB.Lib.Program.Resource;
 
 namespace TSB.Lib.Program.CommandLine
 {
     /// Класс для описания и парсинга параметров командной строки
-    public class SyntaxLoader
+    public class ParametersSchemaLoader
     {
         const string cmdLineSchemaResourceName = "ParametersSchema.xml";
         //const string cmdLineSchemaXSDResourceName = "ParametersSchema.xsd";
@@ -19,10 +18,10 @@ namespace TSB.Lib.Program.CommandLine
 
         private ParametersSchema schema;
 
-        public SyntaxLoader()
+        public ParametersSchemaLoader()
         {
             XmlSerializer serializer = new XmlSerializer(typeof(ParametersSchema));
-            string cmdLineSchemaXml = EmbeddedResourceHelper.GetEmbeddedResourceText(typeof(SyntaxLoader), cmdLineSchemaResourceName);
+            string cmdLineSchemaXml = EmbeddedResourceHelper.GetEmbeddedResourceText(typeof(ParametersSchemaLoader), cmdLineSchemaResourceName);
 
             using (TextReader reader = new StringReader(cmdLineSchemaXml))
             {
@@ -30,7 +29,7 @@ namespace TSB.Lib.Program.CommandLine
             }
 
             
-            foreach (Schema.Command cmd in schema.Commands)
+            foreach (command cmd in schema.commands.command)
             {
                 Console.Write("id=" + cmd.Id);
                 Console.Write(" name=" + cmd.Name);

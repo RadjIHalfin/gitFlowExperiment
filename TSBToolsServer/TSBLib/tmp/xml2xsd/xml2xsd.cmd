@@ -1,1 +1,0 @@
-..\..\xsd.cmd ParametersSchema.xml
