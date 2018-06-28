@@ -57,8 +57,9 @@
   <xs:complexType name="typeOptionToken">
     <xs:complexContent>
       <xs:extension base="typeCommandLineToken">
-        <xs:attribute name="prefix" type="xs:string" use="optional"/>
-        <xs:attribute name="valuePrefix" type="xs:string" use="optional"/>
+        <xs:attribute name="valueTitle" type="xs:string" use="required"/>
+        <xs:attribute name="prefix" type="xs:string" use="required"/>
+        <xs:attribute name="valuePrefix" type="xs:string" use="required"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>

@@ -4,7 +4,7 @@
   <commandLineSyntax>
     <commandToken title="команда" minOccurs="1" maxOccurs="1"/>
     <optionToken title="опция" minOccurs="0" maxOccurs="unbounded"
-                 prefix="-" valuePrefix="="/>
+                 valueTitle="значение" prefix="-" valuePrefix="="/>
     <paramToken title="параметер" minOccurs="0" maxOccurs="unbounded"/>
   </commandLineSyntax>
 
@@ -21,15 +21,7 @@
       </description>
       <usage>
         Формат командной строки:
-        <br/><tab/>
-        <runtimeValue name="programName"/> <xsltValue name="commandLineSyntax"/>
-<!--        
-        &lt;команда&lt;
-        [<xsltValue name="optionPrefix"/>&lt;опция&lt;[<xsltValue name="optionValuePrefix"/>&lt;значение&lt;]
-        [...]]
-        [&lt;параметр&lt;
-        [...]]
--->        
+        <br/><tab/><runtimeValue name="programName"/> <xsltValue name="commandLineSyntax"/>
         <br/>
         <br/>Для справки используйте:
         <br/><tab/><runtimeValue name="programName"/> <commandRef ref="cmdHelp"/>
@@ -42,9 +34,9 @@
       </description>
       <usage>
         Для справки по командам:
-        <br/><runtimeValue name="programName"/> <commandRef ref="cmdHelp"/> &lt;команда&lt;/>
+        <br/><tab/><runtimeValue name="programName"/> <commandRef ref="cmdHelp"/> &lt;команда&gt;
         <br/>Список команд:
-        <br/><xsltValue name="commandsWithDescriptions"/>
+        <xsltValue name="commandsWithDescriptions"/>
       </usage>
 
       <paramRef ref="paramCommandName"/>
