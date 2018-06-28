@@ -54,14 +54,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Program\CommandLine\ParametersSchema.xsd">
+    <EmbeddedResource Include="Program\CommandLine\ParametersSchema.xsd">
       <SubType>Designer</SubType>
-    </None>
+    </EmbeddedResource>
     <None Include="TSBLib.snk" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Program\CommandLine\ParametersSchema.xml" />
-    <Content Include="Program\CommandLine\ParametersSchema.xslt" />
+    <EmbeddedResource Include="Program\CommandLine\ParametersSchema.xslt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -213,9 +213,7 @@
     </xsl:if>
 
     <xsl:value-of select="/ParametersSchema/commandLineSyntax/optionToken/@prefix"/>
-    <xsl:text>&lt;</xsl:text>
     <xsl:value-of select="$commonOption/@argName"/>
-    <xsl:text>&gt;</xsl:text>
     <xsl:text>[</xsl:text>
     <xsl:value-of select="/ParametersSchema/commandLineSyntax/optionToken/@valuePrefix"/>
     <xsl:text>&lt;</xsl:text>
