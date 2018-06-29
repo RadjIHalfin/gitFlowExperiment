@@ -1,0 +1,18 @@
+@echo off
+REM Этот файл (с именем userDevVars.cmd) должен лежать профиле пользователя (%USERPROFILE%)
+
+REM Скрипт предназначен для установки переменных окружения под конкретного профиля и машину
+REM где производится разработка.
+REM Это позволит хранить в СВК (subversion, Git и т.п.) скрипты одинаково подходящие ко всем машинам.
+
+REM Интерфейс файла (обязательные требования к содержанию):
+REM Должны быть определены следующие переменные:
+REM	VS_TOOLS_ROOT  		= корень утилит командной строки VisualStudio
+REM				  содержит vsdevcmd.bat
+REM
+REM	DEV_TOOLS_ROOT 		= корень утилит командной строки для разработчика
+REM				  содержит msxsl.exe
+
+REM Примерное содержание:
+set VS_TOOLS_ROOT=%SystemDrive%\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools
+set DEV_TOOLS_ROOT=%SystemDrive%\DEV_TOOLS
