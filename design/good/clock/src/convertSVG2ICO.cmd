@@ -41,7 +41,17 @@ REM ...дизеринг для прозрачности на каждом отдельном кадре
 "%convert%" %file%.8.icon.png -channel RGBA -separate ( +clone -remap pattern:gray50 ) +swap -combine -transparent-color "#ffffff" %file%.8.icon.gif
 
 REM ...собираем в анимашку
-"%convert%" -delay 15 -loop 0 -dispose previous -transparent-color "#ffffff" *.icon.gif %file%.gif
+::"%convert%" -delay 15 -loop 0 -dispose previous -transparent-color "#ffffff" *.icon.gif %file%.gif
+"%convert%" -loop 0 -dispose previous -transparent-color "#ffffff" ^
+	-delay 8 %file%.1.icon.gif ^
+	-delay 8 %file%.2.icon.gif ^
+	-delay 8 %file%.3.icon.gif ^
+	-delay 8 %file%.4.icon.gif ^
+	-delay 8 %file%.5.icon.gif ^
+	-delay 8 %file%.6.icon.gif ^
+	-delay 8 %file%.7.icon.gif ^
+	-delay 8 %file%.8.icon.gif ^
+	%file%.gif
 :x
 goto y
 ::REM Альтернативная кркутилка
