@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" 
+	xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" 
+	xml:space="preserve" color-interpolation-filters="sRGB"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="400" height="400" class="scene">
+	                         
+	<defs>
+		<g id="leaf_rotate">
+		<use xlink:href="#leaf" x="0" y="0"/>
+		</g>
+	</defs>
+
+</svg>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xml:space="preserve" color-interpolation-filters="sRGB" width="400" height="400" class="scene" xmlns="http://www.w3.org/2000/svg" xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" xmlns:xlink="http://www.w3.org/1999/xlink">
+<style type="text/css"><![CDATA[
+	
+		.scene {fill:none;fill-rule:evenodd;font-size:12;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+
+		.space {fill:#7f7f7f}
+		.chip {fill:url(#lightingGradient); stroke:#f27900}
+	
+	]]></style>
+<defs>
+		<radialGradient id="lightingGradient">
+		      <stop offset="10%" stop-color="#ffa851" />
+		      <stop offset="70%" stop-color="#ff7f00" />
+		</radialGradient>
+	</defs>
+<defs>
+		<!-- корень из трех = 1.73 -->
+		<g id="form" transform="scale(1 1.73)">
+		<path d="M0 -50 &#xA;			C12 -50 50 -12 50 0 &#xA;			C50 12 10 50 0 50 &#xA;			C-12 50 -50 12 -50 0&#xA;			C-50 -12 -12 -50 0 -50&#xA;			Z" />
+		</g>
+
+		<g id="chip">
+			<g transform="scale(1.15 1.3)">
+				<use xlink:href="#form" class="space" />
+			</g>
+			<use xlink:href="#form" class="chip" />
+		</g>
+		
+		<g id="chip2">
+			<g transform="scale(1.7 1.7)">
+				<g transform="scale(1.1 1.2)">
+					<use xlink:href="#form" class="space" />
+				</g>
+				<use xlink:href="#form" class="chip" />
+			</g>
+		</g>
+
+		<g id="chip3">
+			<g transform="scale(2.3 2.4)">
+				<use xlink:href="#form" class="chip" />
+			</g>
+		</g>
+
+		<g id="chips">
+			<use xlink:href="#chip3" x="0" y="225" />
+			<use xlink:href="#chip2" x="0" y="105" />
+			<use xlink:href="#chip" x="0" y="0" />
+		</g>
+
+		<g id="leaf" transform="translate(0, 50) scale(0.3 0.3)">
+			<use xlink:href="#chips" />
+		</g>
+
+	</defs>
+<g id="center" transform="translate(200, 200)">
+
+		<rect width="400" height="400" x="-200" y="-200" class="space" />
+
+
+		<g id="leaf" transform="scale(0.7 0.7)">
+			<use xlink:href="#chips" x="0" y="-175" />
+		</g>
+
+	</g>
+</svg>

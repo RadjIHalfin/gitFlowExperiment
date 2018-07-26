@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svg xmlns="http://www.w3.org/2000/svg" 
+	xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" 
+	xml:space="preserve" color-interpolation-filters="sRGB"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="400" height="400" class="scene">
+	                         
+	<defs>
+
+	    <g id="flower_clock">
+		<use xlink:href="#leaf" x="0" y="0"/>
+
+<!--
+Линейное затухание за 8 шагов
+1	0.875	0.750	0.625	0.500	0.375	0.250	0.125
+
+Последовательность полученная из 10-чного логарифма на 10 шагов
+1	0.699	0.523	0.398	0.301	0.222	0.155	0.097	0.046	0.000
+
+Последовательность полученная из 10-чного логарифма на 8 шагов
+1	0.648	0.456	0.323	0.222	0.140	0.071	0,01
+-->
+		<g transform="rotate(-45)" fill-opacity="0.648" stroke-opacity="1.000">
+			<use xlink:href="#leaf" x="0" y="0"/>
+		</g>
+		<g transform="rotate(-90)" fill-opacity="0.456" stroke-opacity="0.699">
+			<use xlink:href="#leaf" x="0" y="0"/>
+		</g>
+		<g transform="rotate(-135)" fill-opacity="0.323" stroke-opacity="0.523">
+			<use xlink:href="#leaf" x="0" y="0"/>
+		</g>
+		<g transform="rotate(-180)" fill-opacity="0.222" stroke-opacity="0.398">
+			<use xlink:href="#leaf" x="0" y="0"/>
+		</g>
+		<g transform="rotate(-225)" fill-opacity="0.140" stroke-opacity="0.222">
+			<use xlink:href="#leaf" x="0" y="0"/>
+		</g>
+		<g transform="rotate(-270)" fill-opacity="0.071" stroke-opacity="0.155">
+			<use xlink:href="#leaf" x="0" y="0"/>
+		</g>
+		<g transform="rotate(-315)" fill-opacity="0.01" stroke-opacity="0.097">
+			<use xlink:href="#leaf" x="0" y="0"/>
+		</g>
+
+	    </g>
+	</defs>
+
+</svg>

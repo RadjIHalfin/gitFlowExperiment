@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svg xmlns="http://www.w3.org/2000/svg" 
+	xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" 
+	xml:space="preserve" color-interpolation-filters="sRGB"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="400" height="400" class="scene">
+	                         
+	<style type="text/css">
+	<![CDATA[
+		.scene {fill:none;fill-rule:evenodd;font-size:12;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+
+		.space {fill:#ff7f00}
+		.chip {fill:url(#lightingGradient); stroke:#f27900}
+	]]>
+	</style>
+
+	<defs>
+		<radialGradient id="lightingGradient">
+		      <stop offset="10%" stop-color="#ffa851"/>
+		      <stop offset="70%" stop-color="#ff7f00"/>
+		</radialGradient>
+	</defs>
+
+</svg>
